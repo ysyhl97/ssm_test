@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<h1>index.html</h1>
+<a th:href="@{/employee/page/1}">查询所有员工信息</a>
+<a th:href="@{/toQuery}">根据员工姓名模糊查询</a>
+<form method="get" th:action="@{/employee/page/page/1}">
+    根据员工id查询信息:  <input type="text" name="empId"><input type="submit" value="查询">
+</form>
+<hr>
+<a th:href="@{/to/add}">添加用户</a><br>
+
+
+</body>
+</html>
