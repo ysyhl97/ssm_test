@@ -1,6 +1,7 @@
 hello git! hello atguigu! 2222
 hello git! hello atguigu! 3333
 hello git! hello atguigu! branch
+hello git! hello atguigu! hot-fix branch
 hello git! hello atguigu!
 hello git! hello atguigu!
 hello git! hello atguigu!
