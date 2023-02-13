@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间为接口的全类名-->
+<mapper namespace="com.atguigu.ssm.mapper.EmployeeMapper">
+
+    <!--List<Employee> getAllEmployee();-->
+    <select id="getAllEmployee" resultMap="employeeResultMap">
+        select emp_id, emp_name, age, gender, email
+        from t_emp
+    </select>
+    <resultMap id="employeeResultMap" type="com.atguigu.ssm.pojo.Employee">
+        <id property="empId" column="emp_id"></id>
+        <result property="empName" column="emp_name"></result>
+        <result property="age" column="age"></result>
+        <result property="gender" column="gender"></result>
+        <result property="email" column="email"></result>
+    </resultMap>
+
+
+    <!--List<Employee> selectEmployeeLikeName(String empName);-->
+    <select id="selectEmployeeLikeName" resultMap="employeeResultMap">
+        select emp_id, emp_name, age, gender, email
+        from t_emp
+        where emp_name like "%"#{empName}"%"
+    </select>
+
+    <!--List<Employee> selectEmployeeById(Integer empId);-->
+    <select id="selectEmployeeById" resultMap="employeeResultMap">
+        select emp_id, emp_name, age, gender, email
+        from t_emp
+        where emp_id = #{empId}
+    </select>
+
+    <!--Integer insertEmployee(Employee employee);-->
+    <insert id="insertEmployee">
+        insert into t_emp
+        values (null, #{empName}, #{age}, #{gender}, #{email})
+    </insert>
+
+    <!--Integer updateEmployee(Employee employee);-->
+    <update id="updateEmployee">
+        update t_emp set emp_name=#{empName},age=#{age},gender=#{gender},email=#{email}
+        where emp_id=#{empId}
+    </update>
+
+    <!--void deleteEmployeeById(Integer empId);-->
+    <delete id="deleteEmployeeById">
+        delete from t_emp where emp_id = #{empId}
+    </delete>
+
+
+
+</mapper>

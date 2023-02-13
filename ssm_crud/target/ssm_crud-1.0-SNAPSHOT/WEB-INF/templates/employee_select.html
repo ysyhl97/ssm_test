@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+    <title>employee_select</title>
+</head>
+<body>
+
+    <table>
+        <tr>
+            <th>employee_select</th>
+        </tr>
+        <tr>
+            <th>序号</th>
+            <th>用户名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>邮件</th>
+            <th>option</th>
+        </tr>
+        <tr th:each="employee,stauts : ${pageInfo.list}">
+            <td th:text="${stauts.count}"></td>
+            <td th:text="${employee.empName}"></td>
+            <td th:text="${employee.age}"></td>
+            <td th:text="${employee.gender}"></td>
+            <td th:text="${employee.email}"></td>
+            <td>
+                <a href="http://">增加</a> |
+                <a href="http://">删除</a>
+            </td>
+        </tr>
+    </table>
+
+</body>
+<script type="text/javascript" th:src="@{/static/js/jquery-1.8.2.min.js}"></script>
+</html>
